@@ -1,0 +1,52 @@
+###################### pré-processamento ##################################
+
+variaveis numericas discretas: number, generation
+variaveis numericas contínuas: hp, attack, defence, sp_attack, sp_defense, speed, total (?)
+variaveis categoricas nominais: name, type1, type2, legendary(teve que ser tratada como nominal)
+variaveis categoricas ordinais:
+
+vale a pena manter a variavel number ??
+
+A variavel total, apesar de ser derivada de outras variaveis, a soma das características 
+individuais de um pokemon e uma metrica importante para a analise entao sera incluida.
+
+type2 nao esta preenchido em muitas das linhas (relevante?)
+Seria bom trocar as o valor dos que nao tem type2 por "nao possui"?
+
+Usar variavel dummy para name parece errado, ja que todos os pokemons tem nomes diferentes.
+Nesse caso as variaveis dummy ficam altamente dispersas entao nao ajudam a indentificar padroes e
+relações entre os pokemons. 
+
+Como legendary e um valor binario, tambem nao vao ser utilizadas variaveis dummy para ele.
+ 
+###################### K - means #########################################
+
+analizando o contexto provavelmente da pra dividir os pokemons por tipo ou geracao
+numero de geracoes diferente = 8 
+numero de tipos diferentes = 19 ??
+
+chute orientado = (1073/2)^-2 = 23,162
+
+elbow method 
+por algum motivo quando e feita a padronizacao dos dados ele gera uma linha quase reta
+wcss = grafico no excel, melhor valor de k sendo aparentemente 4
+
+essencial fazer padronizacao para o metodo.
+
+Variaveis dummy deram resultados piores. 
+
+###################### hierarquico ###################################
+
+parametros = n_clusters e linkage
+
+so com linkage = ward deu algum resultado visivelmente bom
+
+###################### DBSCAN ###########################################
+
+ao inves de clusters o parametro é o raio
+
+dummy piora os resultados
+
+o melhor angulo ate o momento foi 3.0 com um minimo de 50 elementos
+
+
