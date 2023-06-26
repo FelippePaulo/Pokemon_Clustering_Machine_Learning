@@ -31,7 +31,7 @@ previsores = previsores.drop(previsores[previsores['name'] == 'Eternamax Eternat
 # Resetando o índice do dataframe
 previsores.reset_index(drop=True, inplace=True)
 
-#retirando a coluna nome e numer pois sao apenas identificadores
+#retirando a coluna nome number  pois sao apenas identificadores e total por ser soma de outras variaveis
 previsores = previsores.drop(columns=['name'])
 previsores = previsores.drop(columns=['number'])
 previsores = previsores.drop(columns=['total'])
@@ -52,23 +52,23 @@ labelbinarizer = LabelBinarizer()
 
 from sklearn.preprocessing import LabelBinarizer
 
-# Variável type1
-labelbinarizer = LabelBinarizer()
-variaveis_dummy = labelbinarizer.fit_transform(previsores['type1'])
-novas_variaveis_dummy = [f"type1_{classe}" for classe in labelbinarizer.classes_]
-df_variaveis_dummy = pd.DataFrame(variaveis_dummy, columns=novas_variaveis_dummy)
-#substituindo na base
-previsores = pd.concat([previsores, df_variaveis_dummy], axis=1)
-previsores = previsores.drop('type1', axis=1)
+# # Variável type1
+# labelbinarizer = LabelBinarizer()
+# variaveis_dummy = labelbinarizer.fit_transform(previsores['type1'])
+# novas_variaveis_dummy = [f"type1_{classe}" for classe in labelbinarizer.classes_]
+# df_variaveis_dummy = pd.DataFrame(variaveis_dummy, columns=novas_variaveis_dummy)
+# #substituindo na base
+# previsores = pd.concat([previsores, df_variaveis_dummy], axis=1)
+# previsores = previsores.drop('type1', axis=1)
 
-# Variável type2
-labelbinarizer = LabelBinarizer()
-variaveis_dummy = labelbinarizer.fit_transform(previsores['type2'])
-novas_variaveis_dummy = [f"type2_{classe}" for classe in labelbinarizer.classes_]
-df_variaveis_dummy = pd.DataFrame(variaveis_dummy, columns=novas_variaveis_dummy)
-#substituindo na base
-previsores = pd.concat([previsores, df_variaveis_dummy], axis=1)
-previsores = previsores.drop('type2', axis=1)
+# # Variável type2
+# labelbinarizer = LabelBinarizer()
+# variaveis_dummy = labelbinarizer.fit_transform(previsores['type2'])
+# novas_variaveis_dummy = [f"type2_{classe}" for classe in labelbinarizer.classes_]
+# df_variaveis_dummy = pd.DataFrame(variaveis_dummy, columns=novas_variaveis_dummy)
+# #substituindo na base
+# previsores = pd.concat([previsores, df_variaveis_dummy], axis=1)
+# previsores = previsores.drop('type2', axis=1)
 
 
 
