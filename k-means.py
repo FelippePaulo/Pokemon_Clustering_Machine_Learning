@@ -17,11 +17,11 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 import numpy as np
 
-kmeans = KMeans(n_clusters = 4, random_state = 0)
+kmeans = KMeans(n_clusters = 3, random_state = 0)
 previsoes = kmeans.fit_predict(previsores)
 
 lista_pokemons = np.column_stack((previsores,previsoes))
-lista_pokemons = lista_pokemons[lista_pokemons[:,12].argsort()]
+lista_pokemons = lista_pokemons[lista_pokemons[:,11].argsort()]
 
 ############### Plotando grupos com k = 4 ####################
 
@@ -45,7 +45,7 @@ baseOriginal.loc[baseOriginal['type2'] != 'nao possui', 'typeconjunto'] += '+' +
 
 
 variavel1 = 'total'
-variavel2 = 'type1'
+variavel2 = 'typeconjunto'
 
 plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=100,c='blue',label='Cluster 0')
 plt.scatter(baseOriginal.loc[previsoes == 1, variavel1],baseOriginal.loc[previsoes == 1, variavel2],s=100,c='red',label='Cluster 1')
@@ -86,5 +86,5 @@ plt.ylabel(variavel2)
 #################################################3
 
 baseOriginal['Cluster'] = previsoes
-total_por_grupo = baseOriginal.groupby('Cluster').count().rename(columns={'total': 'Total'}).total
+total_por_grupo = baseOriginal.groupby('Cluster').count().rename(columns={'total': 'total'}).total
 
