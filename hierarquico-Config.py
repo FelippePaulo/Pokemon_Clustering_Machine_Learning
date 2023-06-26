@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import dendrogram, linkage
 
 
-dendrograma = dendrogram(linkage(previsores, method = 'single'))
+dendrograma = dendrogram(linkage(previsores, method = 'ward'))
 plt.title("Dendrograma")
 plt.xlabel('Registros')
 plt.ylabel('Distancia Euclidiana')

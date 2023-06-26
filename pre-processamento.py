@@ -34,6 +34,7 @@ previsores.reset_index(drop=True, inplace=True)
 #retirando a coluna nome e numer pois sao apenas identificadores
 previsores = previsores.drop(columns=['name'])
 previsores = previsores.drop(columns=['number'])
+previsores = previsores.drop(columns=['total'])
 
 # Transforma variaveis categóricas em numéricas
 from sklearn.preprocessing import LabelEncoder

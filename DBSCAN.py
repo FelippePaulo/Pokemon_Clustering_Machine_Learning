@@ -14,11 +14,11 @@ Created on Fri Nov 27 11:50:41 2020
 from sklearn.cluster import DBSCAN
 import numpy as np
 
-dbscan = DBSCAN(eps = 3.0, min_samples = 50)
+dbscan = DBSCAN(eps = 3.0, min_samples = 35)
 previsoes = dbscan.fit_predict(previsores)
 
 lista_pokemon = np.column_stack((previsores,previsoes))
-lista_pokemon = lista_pokemon[lista_pokemon[:,12].argsort()]
+lista_pokemon = lista_pokemon[lista_pokemon[:,10].argsort()]
 
 ############### Plotando grupos ####################
 import matplotlib.pyplot as plt
@@ -46,12 +46,12 @@ baseOriginal.loc[baseOriginal['type2'] != 'nao possui', 'typeconjunto'] += '+' +
 variavel1 = 'total'
 variavel2 = 'typeconjunto'
 
-plt.scatter(baseOriginal.loc[previsoes == -1, variavel1],baseOriginal.loc[previsoes == -1, variavel2],s=100,c='yellow',label='Cluster -1')
-plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=100,c='blue',label='Cluster 0')
-plt.scatter(baseOriginal.loc[previsoes == 1, variavel1],baseOriginal.loc[previsoes == 1, variavel2],s=100,c='red',label='Cluster 1')
-plt.scatter(baseOriginal.loc[previsoes == 2, variavel1],baseOriginal.loc[previsoes == 2, variavel2],s=100,c='orange',label='Cluster 2')
-plt.scatter(baseOriginal.loc[previsoes == 3, variavel1],baseOriginal.loc[previsoes == 3, variavel2],s=100,c='green',label='Cluster 3')
-plt.scatter(baseOriginal.loc[previsoes == 4, variavel1],baseOriginal.loc[previsoes == 4, variavel2],s=100,c='purple',label='Cluster 4')
+plt.scatter(baseOriginal.loc[previsoes == -1, variavel1],baseOriginal.loc[previsoes == -1, variavel2],s=50,c='yellow',label='Cluster -1')
+plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=50,c='blue',label='Cluster 0')
+plt.scatter(baseOriginal.loc[previsoes == 1, variavel1],baseOriginal.loc[previsoes == 1, variavel2],s=50,c='red',label='Cluster 1')
+plt.scatter(baseOriginal.loc[previsoes == 2, variavel1],baseOriginal.loc[previsoes == 2, variavel2],s=50,c='orange',label='Cluster 2')
+plt.scatter(baseOriginal.loc[previsoes == 3, variavel1],baseOriginal.loc[previsoes == 3, variavel2],s=50,c='green',label='Cluster 3')
+plt.scatter(baseOriginal.loc[previsoes == 4, variavel1],baseOriginal.loc[previsoes == 4, variavel2],s=50,c='purple',label='Cluster 4')
 plt.xlabel(variavel1)
 plt.ylabel(variavel2)
 
@@ -60,10 +60,10 @@ plt.ylabel(variavel2)
 # baseOriginal['BILL_TOTAL'] = baseOriginal['BILL_AMT1'] + baseOriginal['BILL_AMT2'] + baseOriginal['BILL_AMT3'] + baseOriginal['BILL_AMT4'] + baseOriginal['BILL_AMT5'] + baseOriginal['BILL_AMT6']
 # baseOriginal['PAY_TOTAL'] = baseOriginal['PAY_AMT1'] + baseOriginal['PAY_AMT2'] + baseOriginal['PAY_AMT3'] + baseOriginal['PAY_AMT4'] + baseOriginal['PAY_AMT5'] + baseOriginal['PAY_AMT6']
 
-# plt.scatter(baseOriginal.loc[previsoes == -1, 'BILL_TOTAL'],baseOriginal.loc[previsoes == -1, 'PAY_TOTAL'],s=100,c='green',label='Cluster 3')
-# plt.scatter(baseOriginal.loc[previsoes == 1, 'BILL_TOTAL'],baseOriginal.loc[previsoes == 1, 'PAY_TOTAL'],s=100,c='blue',label='Cluster 1')
-# plt.scatter(baseOriginal.loc[previsoes == 0, 'BILL_TOTAL'],baseOriginal.loc[previsoes == 0, 'PAY_TOTAL'],s=100,c='orange',label='Cluster 0')
-# plt.scatter(baseOriginal.loc[previsoes == 2, 'BILL_TOTAL'],baseOriginal.loc[previsoes == 2, 'PAY_TOTAL'],s=100,c='red',label='Cluster 2')
+# plt.scatter(baseOriginal.loc[previsoes == -1, 'BILL_TOTAL'],baseOriginal.loc[previsoes == -1, 'PAY_TOTAL'],s=50,c='green',label='Cluster 3')
+# plt.scatter(baseOriginal.loc[previsoes == 1, 'BILL_TOTAL'],baseOriginal.loc[previsoes == 1, 'PAY_TOTAL'],s=50,c='blue',label='Cluster 1')
+# plt.scatter(baseOriginal.loc[previsoes == 0, 'BILL_TOTAL'],baseOriginal.loc[previsoes == 0, 'PAY_TOTAL'],s=50,c='orange',label='Cluster 0')
+# plt.scatter(baseOriginal.loc[previsoes == 2, 'BILL_TOTAL'],baseOriginal.loc[previsoes == 2, 'PAY_TOTAL'],s=50,c='red',label='Cluster 2')
 
 # plt.xlabel('Fatura total')
 # plt.ylabel('Pagamento total')
