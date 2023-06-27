@@ -14,7 +14,7 @@ Created on Fri Nov 27 11:50:41 2020
 from sklearn.cluster import DBSCAN
 import numpy as np
 
-dbscan = DBSCAN(eps = 3.0, min_samples = 35)
+dbscan = DBSCAN(eps = 3.0, min_samples = 50)
 previsoes = dbscan.fit_predict(previsores)
 
 lista_pokemon = np.column_stack((previsores,previsoes))
@@ -46,10 +46,10 @@ baseOriginal.loc[baseOriginal['type2'] != 'nao possui', 'typeconjunto'] += '+' +
 variavel1 = 'total'
 variavel2 = 'typeconjunto'
 
-plt.scatter(baseOriginal.loc[previsoes == -1, variavel1],baseOriginal.loc[previsoes == -1, variavel2],s=50,c='yellow',label='Cluster -1')
-plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=50,c='blue',label='Cluster 0')
+plt.scatter(baseOriginal.loc[previsoes == -1, variavel1],baseOriginal.loc[previsoes == -1, variavel2],s=50,c='blue',label='Cluster -1')
+plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=50,c='orange',label='Cluster 0')
 plt.scatter(baseOriginal.loc[previsoes == 1, variavel1],baseOriginal.loc[previsoes == 1, variavel2],s=50,c='red',label='Cluster 1')
-plt.scatter(baseOriginal.loc[previsoes == 2, variavel1],baseOriginal.loc[previsoes == 2, variavel2],s=50,c='orange',label='Cluster 2')
+plt.scatter(baseOriginal.loc[previsoes == 2, variavel1],baseOriginal.loc[previsoes == 2, variavel2],s=50,c='pink',label='Cluster 2')
 plt.scatter(baseOriginal.loc[previsoes == 3, variavel1],baseOriginal.loc[previsoes == 3, variavel2],s=50,c='green',label='Cluster 3')
 plt.scatter(baseOriginal.loc[previsoes == 4, variavel1],baseOriginal.loc[previsoes == 4, variavel2],s=50,c='purple',label='Cluster 4')
 plt.xlabel(variavel1)

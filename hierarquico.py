@@ -16,7 +16,7 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 from sklearn.cluster import AgglomerativeClustering
 import numpy as np
 
-hc = AgglomerativeClustering(n_clusters = 6, affinity = 'euclidean', linkage = 'ward')
+hc = AgglomerativeClustering(n_clusters = 3, affinity = 'euclidean', linkage = 'ward')
 previsoes = hc.fit_predict(previsores)
 
 lista_clientes = np.column_stack((previsores,previsoes))
@@ -45,9 +45,9 @@ baseOriginal.loc[baseOriginal['type2'] != 'nao possui', 'typeconjunto'] += '+' +
 variavel1 = 'total'
 variavel2 = 'typeconjunto'
 
-plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=50,c='blue',label='Cluster 0')
+plt.scatter(baseOriginal.loc[previsoes == 0, variavel1],baseOriginal.loc[previsoes == 0, variavel2],s=50,c='orange',label='Cluster 0')
 plt.scatter(baseOriginal.loc[previsoes == 1, variavel1],baseOriginal.loc[previsoes == 1, variavel2],s=50,c='red',label='Cluster 1')
-plt.scatter(baseOriginal.loc[previsoes == 2, variavel1],baseOriginal.loc[previsoes == 2, variavel2],s=50,c='orange',label='Cluster 2')
+plt.scatter(baseOriginal.loc[previsoes == 2, variavel1],baseOriginal.loc[previsoes == 2, variavel2],s=50,c='blue',label='Cluster 2')
 plt.scatter(baseOriginal.loc[previsoes == 3, variavel1],baseOriginal.loc[previsoes == 3, variavel2],s=50,c='green',label='Cluster 3')
 plt.scatter(baseOriginal.loc[previsoes == 4, variavel1],baseOriginal.loc[previsoes == 4, variavel2],s=50,c='purple',label='Cluster 4')
 plt.scatter(baseOriginal.loc[previsoes == 5, variavel1],baseOriginal.loc[previsoes == 5, variavel2],s=50,c='brown',label='Cluster 5')
